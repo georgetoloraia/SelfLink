@@ -33,11 +33,45 @@
   <section id="register" class="section">
     <div class="container">
       <h2>Join SelfLink</h2>
-      <div class="card">
-        <p>Create a simple profile to generate your Life Matrix (visual demo).</p>
+      <p class="subtitle">Create your profile and discover your Life Matrix</p>
+    
+      <form class="register-form" onsubmit="return false;">
+        <div class="form-row">
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+      
+        <div class="form-row photo-upload">
+          <label>Profile Photo</label>
+          <input type="file" id="photo" accept="image/*">
+          <div id="photoPreview" class="photo-preview">📸</div>
+        </div>
+      
+        <div class="form-grid">
+          <div>
+            <label>Birth Date</label>
+            <input type="date" id="birthDate" required>
+          </div>
+          <div>
+            <label>Birth Time</label>
+            <input type="time" id="birthTime">
+          </div>
+          <div>
+            <label>Birth Place</label>
+            <input type="text" id="birthPlace" placeholder="City, Country">
+          </div>
+        </div>
+      
+        <button class="btn primary" id="generateBtn">✨ Generate My Matrix</button>
+      </form>
+    
+      <div id="matrixPreview" class="matrix-preview">
+        <h3>🔮 Your Life Matrix (visual preview)</h3>
+        <canvas id="matrixCanvas" width="500" height="300"></canvas>
       </div>
     </div>
   </section>
+
 
   <section id="soulmatch" class="section">
     <div class="container">

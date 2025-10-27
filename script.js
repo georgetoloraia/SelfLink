@@ -20,3 +20,57 @@ document.querySelectorAll('.links a').forEach(a=>{
   window.scrollTo({top:0,behavior:'smooth'});
  });
 });
+
+// --- Registration Logic ---
+const photoInput = document.getElementById('photo');
+const photoPreview = document.getElementById('photoPreview');
+photoInput?.addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(file){
+    const reader = new FileReader();
+    reader.onload = ev => {
+      photoPreview.style.backgroundImage = `url(${ev.target.result})`;
+      photoPreview.style.backgroundSize = 'cover';
+      photoPreview.textContent = '';
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+// Matrix visualization demo
+const generateBtn = document.getElementById('generateBtn');
+generateBtn?.addEventListener('click', ()=>{
+  const canvas = document.getElementById('matrixCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  const centerX = canvas.width / 2;
+  const centerY = canvas.height / 2;
+  const points = [];
+
+  for(let i=0;i<12;i++){
+    const angle = (Math.PI*2/12)*i;
+    const r = 100 + Math.random()*30;
+    points.push({
+      x:centerX + Math.cos(angle)*r,
+      y:centerY + Math.sin(angle)*r
+    });
+  }
+
+  ctx.strokeStyle = "rgba(124,199,255,0.8)";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  points.forEach((p,i)=>{
+    const next = points[(i+1)%points.length];
+    ctx.moveTo(p.x,p.y);
+    ctx.lineTo(next.x,next.y);
+  });
+  ctx.stroke();
+
+  points.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,4,0,Math.PI*2);
+    ctx.fillStyle = "#81ecec";
+    ctx.fill();
+  });
+});
