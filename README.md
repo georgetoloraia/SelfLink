@@ -1,5 +1,13 @@
 # 🌟 SelfLink — Connect to Who You Truly Are
 
+<p align="center">
+  🌐 <b>Languages:</b>  
+  🇬🇧 <a href="README.md">English</a> &nbsp;|&nbsp; 
+  🇬🇪 <a href="README_ka.md">ქართული</a> &nbsp;|&nbsp; 
+  🇷🇺 <a href="README_ru.md">Русский</a>
+</p>
+
+
 > **A digital platform for self-discovery, transformation, and conscious connection.**  
 > SelfLink combines **psychology**, **spiritual analytics (Matrix method)**, and **AI technology** to help humans reconnect with their authentic selves.
 
