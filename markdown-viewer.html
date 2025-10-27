@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SelfLink — Documentation Viewer</title>
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: radial-gradient(circle at center, #0b0e1a 0%, #000 100%);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    /* Moving background particles */
+    .star {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: #74b9ff;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: move linear infinite;
+    }
+
+    @keyframes move {
+      0% { transform: translateY(0); opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0.6; }
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 30px 20px;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      background: linear-gradient(90deg, #74b9ff, #a29bfe, #81ecec);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: float 4s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(116, 185, 255, 0.3);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .langs {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: inline-block;
+      backdrop-filter: blur(6px);
+    }
+
+    .langs a {
+      color: #74b9ff;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 8px;
+      transition: 0.3s;
+    }
+
+    .langs a:hover {
+      color: #81ecec;
+      text-shadow: 0 0 10px #74b9ff;
+    }
+
+    #content {
+      background: rgba(255, 255, 255, 0.03);
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(116, 185, 255, 0.1);
+      line-height: 1.7;
+      backdrop-filter: blur(8px);
+    }
+
+    #content h1, #content h2, #content h3 {
+      background: linear-gradient(90deg, #81ecec, #74b9ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #content a {
+      color: #74b9ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #content a:hover {
+      text-shadow: 0 0 10px #74b9ff;
+    }
+
+    pre, code {
+      background: rgba(255,255,255,0.08);
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: #f8f8f2;
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 30px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background stars -->
+  <script>
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement("div");
+      s.classList.add("star");
+      s.style.left = Math.random() * 100 + "vw";
+      s.style.top = Math.random() * 100 + "vh";
+      s.style.animationDuration = 5 + Math.random() * 10 + "s";
+      s.style.opacity = 0.2 + Math.random() * 0.8;
+      document.body.appendChild(s);
+    }
+  </script>
+
+  <header>
+    <h1>🌟 SelfLink</h1>
+    <p>Documentation & Multilingual Readme Viewer</p>
+    <div class="langs">
+      🌐 Languages:
+      <a href="markdown-viewer.html?file=README.md">English</a> |
+      <a href="markdown-viewer.html?file=README_ka.md">ქართული</a> |
+      <a href="markdown-viewer.html?file=README_ru.md">Русский</a>
+    </div>
+  </header>
+
+  <main id="content">Loading...</main>
+
+  <footer>© 2025 SelfLink Project — Connect to who you truly are.</footer>
+
+  <!-- Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file") || "README.md";
+
+    fetch(file)
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById("content").innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById("content").innerHTML =
+          "<p>❌ Unable to load the requested Markdown file.</p>";
+      });
+  </script>
+</body>
+</html>
