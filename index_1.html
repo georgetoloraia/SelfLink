@@ -77,42 +77,42 @@
     <div class="container">
       <h2>💞 SoulMatch</h2>
       <p class="subtitle">Explore harmony between souls — visual demo of compatibility.</p>
-    
+
       <div class="soulmatch-grid">
         <div class="profile male">
           <img src="https://i.pravatar.cc/180?img=32" alt="Man">
           <h3>Giorgi</h3>
           <div class="symbol">☀️</div>
         </div>
-      
+
         <div class="profile female">
           <img src="https://i.pravatar.cc/180?img=47" alt="Girl 1">
           <h3>Anna</h3>
           <div class="symbol">🌙</div>
         </div>
-      
+
         <div class="profile female">
           <img src="https://i.pravatar.cc/180?img=57" alt="Girl 2">
           <h3>Sofia</h3>
           <div class="symbol">🌙</div>
         </div>
-      
+
         <div class="profile female">
           <img src="https://i.pravatar.cc/180?img=65" alt="Girl 3">
           <h3>Maya</h3>
           <div class="symbol">🌙</div>
         </div>
       </div>
-    
+
       <div class="match-results">
         <canvas id="matchCanvas" width="500" height="250"></canvas>
-      
+
         <div class="compatibility">
           <div class="percent-label">💫 Compatibility:</div>
           <div class="percent-bar"><div id="percentFill"></div></div>
           <div id="percentValue">--%</div>
         </div>
-      
+
         <button class="btn primary" id="matchBtn">🔮 Analyze Connection</button>
       </div>
     </div>
@@ -121,12 +121,23 @@
 
   <section id="mentor" class="section">
     <div class="container">
-      <h2>AI Mentor</h2>
-      <div class="card">
-        <p>Daily insights, reflections, and small transformative tasks. (visual demo)</p>
+      <h2>🧘‍♂️ AI Mentor</h2>
+      <p class="subtitle">Your daily guide for reflection and growth</p>
+    
+      <div class="mentor-box">
+        <div class="mentor-avatar">🪷</div>
+        <div id="chat" class="chat-area">
+          <div class="msg mentor">Hello Giorgi, I’m your SelfLink guide. How do you feel today?</div>
+        </div>
+      
+        <div class="input-row">
+          <input id="userInput" type="text" placeholder="Type your thought..." />
+          <button id="sendBtn" class="btn primary">Send</button>
+        </div>
       </div>
     </div>
   </section>
+
 
   <section id="growth" class="section">
     <div class="container">

@@ -117,3 +117,44 @@ matchBtn?.addEventListener('click', ()=>{
     ctx.fill();
   }
 });
+
+
+// --- AI Mentor Simulation ---
+const sendBtn = document.getElementById('sendBtn');
+const userInput = document.getElementById('userInput');
+const chat = document.getElementById('chat');
+
+const mentorReplies = [
+  "Every step you take in awareness changes your path.",
+  "Peace begins when you listen to yourself honestly.",
+  "Don’t rush. The seed grows in silence before it blooms.",
+  "The person you seek to become is already within you.",
+  "Your energy creates your reality — stay focused on light.",
+  "Let today be a mirror of who you wish to be."
+];
+
+function addMessage(text, sender) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + sender;
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+sendBtn?.addEventListener('click', () => {
+  const text = userInput.value.trim();
+  if (!text) return;
+  addMessage(text, 'user');
+  userInput.value = '';
+
+  // Mentor "thinking" effect
+  setTimeout(() => {
+    const reply = mentorReplies[Math.floor(Math.random() * mentorReplies.length)];
+    addMessage(reply, 'mentor');
+  }, 800);
+});
+
+// Enter key support
+userInput?.addEventListener('keypress', e => {
+  if (e.key === 'Enter') sendBtn.click();
+});

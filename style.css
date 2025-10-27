@@ -148,3 +148,73 @@ h1,h2{background:linear-gradient(90deg,#74b9ff,#a29bfe,#81ecec);background-clip:
   margin-top: 8px;
   font-weight: bold;
 }
+
+
+/* For Mentor */
+.mentor-box {
+  margin-top: 30px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  border: 1px solid rgba(124,199,255,0.15);
+  padding: 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 40px rgba(124,199,255,0.1);
+}
+
+.mentor-avatar {
+  text-align: center;
+  font-size: 40px;
+  animation: pulseGlow 4s infinite ease-in-out;
+  margin-bottom: 15px;
+}
+@keyframes pulseGlow {
+  0%,100% { text-shadow: 0 0 8px rgba(124,199,255,0.6); opacity: 1; }
+  50% { text-shadow: 0 0 25px rgba(124,199,255,0.9); opacity: 0.9; }
+}
+
+.chat-area {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 15px;
+  height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg {
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 80%;
+  font-size: 15px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+.msg.user {
+  background: linear-gradient(90deg, rgba(124,199,255,.25), rgba(158,163,255,.25));
+  align-self: flex-end;
+  border: 1px solid rgba(124,199,255,.3);
+}
+.msg.mentor {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  align-self: flex-start;
+  color: #cdefff;
+}
+
+.input-row {
+  display: flex;
+  margin-top: 15px;
+  gap: 10px;
+}
+.input-row input {
+  flex: 1;
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
