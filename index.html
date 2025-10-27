@@ -5,52 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SelfLink — Connect to Who You Truly Are</title>
   <style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
     body {
-      background: radial-gradient(circle at center, #0b0e1a, #000);
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #0a0e1a 0%, #000 100%);
       color: #e0e0e0;
       font-family: "Segoe UI", sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
-      margin: 0;
+      overflow: hidden;
     }
+
     h1 {
-      color: #74b9ff;
-      font-size: 2.8em;
-      margin-bottom: 0.3em;
+      font-size: 3em;
+      background: linear-gradient(90deg, #74b9ff, #a29bfe, #81ecec);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 4s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(116, 185, 255, 0.2);
     }
+
     p {
-      font-size: 1.1em;
-      color: #ccc;
       max-width: 600px;
-      line-height: 1.5;
+      text-align: center;
+      color: #ccc;
+      font-size: 1.2em;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      line-height: 1.6;
     }
+
     a {
       color: #74b9ff;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.3s;
     }
+
     a:hover {
+      color: #81ecec;
       text-shadow: 0 0 10px #74b9ff;
     }
+
     footer {
       position: absolute;
       bottom: 15px;
+      color: #555;
       font-size: 0.9em;
-      color: #777;
     }
+
+    /* Moving particles background */
+    .stars {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: move 10s linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes move {
+      0% { transform: translateY(0px); opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0.5; }
+    }
+
     .langs {
-      margin-top: 20px;
+      background: rgba(255,255,255,0.05);
+      padding: 8px 14px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
     }
+
   </style>
 </head>
 <body>
+
+  <!-- Moving energy points (stars) -->
+  <script>
+    for(let i=0; i<60; i++){
+      const star = document.createElement('div');
+      star.classList.add('stars');
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.animationDuration = 6 + Math.random()*10 + 's';
+      star.style.opacity = 0.3 + Math.random()*0.7;
+      document.body.appendChild(star);
+    }
+  </script>
+
   <h1>🌟 SelfLink</h1>
-  <p>Connect to who you truly are — the digital platform for self-discovery, transformation, and conscious connection.</p>
-  
+  <p>Connect to who you truly are — a digital journey of self-discovery, transformation, and conscious connection.</p>
+
   <div class="langs">
     🌐 Languages: 
     <a href="README.md">English</a> | 
@@ -59,5 +114,6 @@
   </div>
 
   <footer>© 2025 SelfLink Project — All rights reserved.</footer>
+
 </body>
 </html>
