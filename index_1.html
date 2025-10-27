@@ -34,19 +34,19 @@
     <div class="container">
       <h2>Join SelfLink</h2>
       <p class="subtitle">Create your profile and discover your Life Matrix</p>
-    
+
       <form class="register-form" onsubmit="return false;">
         <div class="form-row">
           <label>Name</label>
           <input type="text" id="name" placeholder="Your name" required>
         </div>
-      
+
         <div class="form-row photo-upload">
           <label>Profile Photo</label>
           <input type="file" id="photo" accept="image/*">
           <div id="photoPreview" class="photo-preview">📸</div>
         </div>
-      
+
         <div class="form-grid">
           <div>
             <label>Birth Date</label>
@@ -61,10 +61,10 @@
             <input type="text" id="birthPlace" placeholder="City, Country">
           </div>
         </div>
-      
+
         <button class="btn primary" id="generateBtn">✨ Generate My Matrix</button>
       </form>
-    
+
       <div id="matrixPreview" class="matrix-preview">
         <h3>🔮 Your Life Matrix (visual preview)</h3>
         <canvas id="matrixCanvas" width="500" height="300"></canvas>
@@ -75,12 +75,49 @@
 
   <section id="soulmatch" class="section">
     <div class="container">
-      <h2>SoulMatch</h2>
-      <div class="card">
-        <p>Explore harmony and energetic compatibility between people. (visual demo)</p>
+      <h2>💞 SoulMatch</h2>
+      <p class="subtitle">Explore harmony between souls — visual demo of compatibility.</p>
+    
+      <div class="soulmatch-grid">
+        <div class="profile male">
+          <img src="https://i.pravatar.cc/180?img=32" alt="Man">
+          <h3>Giorgi</h3>
+          <div class="symbol">☀️</div>
+        </div>
+      
+        <div class="profile female">
+          <img src="https://i.pravatar.cc/180?img=47" alt="Girl 1">
+          <h3>Anna</h3>
+          <div class="symbol">🌙</div>
+        </div>
+      
+        <div class="profile female">
+          <img src="https://i.pravatar.cc/180?img=57" alt="Girl 2">
+          <h3>Sofia</h3>
+          <div class="symbol">🌙</div>
+        </div>
+      
+        <div class="profile female">
+          <img src="https://i.pravatar.cc/180?img=65" alt="Girl 3">
+          <h3>Maya</h3>
+          <div class="symbol">🌙</div>
+        </div>
+      </div>
+    
+      <div class="match-results">
+        <canvas id="matchCanvas" width="500" height="250"></canvas>
+      
+        <div class="compatibility">
+          <div class="percent-label">💫 Compatibility:</div>
+          <div class="percent-bar"><div id="percentFill"></div></div>
+          <div id="percentValue">--%</div>
+        </div>
+      
+        <button class="btn primary" id="matchBtn">🔮 Analyze Connection</button>
       </div>
     </div>
   </section>
+
 
   <section id="mentor" class="section">
     <div class="container">

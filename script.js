@@ -74,3 +74,46 @@ generateBtn?.addEventListener('click', ()=>{
     ctx.fill();
   });
 });
+
+
+// --- SoulMatch Logic ---
+const matchBtn = document.getElementById('matchBtn');
+const percentFill = document.getElementById('percentFill');
+const percentValue = document.getElementById('percentValue');
+const matchCanvas = document.getElementById('matchCanvas');
+
+matchBtn?.addEventListener('click', ()=>{
+  const ctx = matchCanvas.getContext('2d');
+  ctx.clearRect(0,0,matchCanvas.width,matchCanvas.height);
+
+  // Random percentage
+  const percent = Math.floor(60 + Math.random()*40);
+  percentValue.textContent = percent + "%";
+  percentFill.style.width = percent + "%";
+
+  // Visual connection (random geometry)
+  const w = matchCanvas.width;
+  const h = matchCanvas.height;
+  const points = [
+    {x: w*0.2, y: h*0.5},
+    {x: w*0.5, y: h*0.3},
+    {x: w*0.8, y: h*0.5}
+  ];
+
+  ctx.strokeStyle = 'rgba(124,199,255,0.7)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
+  ctx.bezierCurveTo(w*0.35, h*0.1, w*0.65, h*0.9, points[2].x, points[2].y);
+  ctx.stroke();
+
+  // glowing dots
+  for(let p of points){
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,6,0,Math.PI*2);
+    ctx.fillStyle = "#81ecec";
+    ctx.shadowColor = "#81ecec";
+    ctx.shadowBlur = 10;
+    ctx.fill();
+  }
+});
